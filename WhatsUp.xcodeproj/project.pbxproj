@@ -1,0 +1,694 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65393F9E255DE34200F7C4E3 /* WhatsUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393F9D255DE34200F7C4E3 /* WhatsUpApp.swift */; };
+		65393FA0255DE34200F7C4E3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393F9F255DE34200F7C4E3 /* HomeView.swift */; };
+		65393FA2255DE34800F7C4E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65393FA1255DE34800F7C4E3 /* Assets.xcassets */; };
+		65393FA5255DE34800F7C4E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65393FA4255DE34800F7C4E3 /* Preview Assets.xcassets */; };
+		65393FA7255DE34800F7C4E3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393FA6255DE34800F7C4E3 /* Persistence.swift */; };
+		65393FB5255DE34900F7C4E3 /* WhatsUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393FB4255DE34900F7C4E3 /* WhatsUpTests.swift */; };
+		65393FC0255DE34900F7C4E3 /* WhatsUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393FBF255DE34900F7C4E3 /* WhatsUpUITests.swift */; };
+		B2448187259BCFD5001EEE5D /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2448186259BCFD5001EEE5D /* EmotionView.swift */; };
+		B244818C259BD05C001EEE5D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244818B259BD05C001EEE5D /* HomeViewModel.swift */; };
+		B244819F259BDEFA001EEE5D /* WhatsUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B244819D259BDEFA001EEE5D /* WhatsUp.xcdatamodeld */; };
+		B24481B0259CDF63001EEE5D /* ReactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481AF259CDF63001EEE5D /* ReactionsView.swift */; };
+		B24481B8259CE87F001EEE5D /* ReactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481B7259CE87F001EEE5D /* ReactionRowView.swift */; };
+		B24481C7259FCE98001EEE5D /* ReactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481C6259FCE98001EEE5D /* ReactionsViewModel.swift */; };
+		B24481E825A0A15F001EEE5D /* Emotion+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481E425A0A15F001EEE5D /* Emotion+CoreDataClass.swift */; };
+		B24481E925A0A15F001EEE5D /* Emotion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481E525A0A15F001EEE5D /* Emotion+CoreDataProperties.swift */; };
+		B24481EA25A0A15F001EEE5D /* Reaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481E625A0A15F001EEE5D /* Reaction+CoreDataClass.swift */; };
+		B24481EB25A0A15F001EEE5D /* Reaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481E725A0A15F001EEE5D /* Reaction+CoreDataProperties.swift */; };
+		B2A18860259783480073331E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A1885F259783480073331E /* Background.swift */; };
+		B2A1887E2599267A0073331E /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A1887D2599267A0073331E /* Triangle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65393FB1255DE34900F7C4E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65393F92255DE34200F7C4E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65393F99255DE34200F7C4E3;
+			remoteInfo = WhatsUp;
+		};
+		65393FBC255DE34900F7C4E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65393F92255DE34200F7C4E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65393F99255DE34200F7C4E3;
+			remoteInfo = WhatsUp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65393F9A255DE34200F7C4E3 /* WhatsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65393F9D255DE34200F7C4E3 /* WhatsUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsUpApp.swift; sourceTree = "<group>"; };
+		65393F9F255DE34200F7C4E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		65393FA1255DE34800F7C4E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65393FA4255DE34800F7C4E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		65393FA6255DE34800F7C4E3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		65393FAB255DE34800F7C4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65393FB0255DE34900F7C4E3 /* WhatsUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65393FB4255DE34900F7C4E3 /* WhatsUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsUpTests.swift; sourceTree = "<group>"; };
+		65393FB6255DE34900F7C4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65393FBB255DE34900F7C4E3 /* WhatsUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65393FBF255DE34900F7C4E3 /* WhatsUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsUpUITests.swift; sourceTree = "<group>"; };
+		65393FC1255DE34900F7C4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2448186259BCFD5001EEE5D /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
+		B244818B259BD05C001EEE5D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B244819E259BDEFA001EEE5D /* WhatsUp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhatsUp.xcdatamodel; sourceTree = "<group>"; };
+		B24481AF259CDF63001EEE5D /* ReactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionsView.swift; sourceTree = "<group>"; };
+		B24481B7259CE87F001EEE5D /* ReactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionRowView.swift; sourceTree = "<group>"; };
+		B24481C6259FCE98001EEE5D /* ReactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionsViewModel.swift; sourceTree = "<group>"; };
+		B24481E425A0A15F001EEE5D /* Emotion+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Emotion+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B24481E525A0A15F001EEE5D /* Emotion+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Emotion+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B24481E625A0A15F001EEE5D /* Reaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B24481E725A0A15F001EEE5D /* Reaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2A1885F259783480073331E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		B2A1887D2599267A0073331E /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65393F97255DE34200F7C4E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65393FAD255DE34900F7C4E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65393FB8255DE34900F7C4E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65393F91255DE34200F7C4E3 = {
+			isa = PBXGroup;
+			children = (
+				65393F9C255DE34200F7C4E3 /* WhatsUp */,
+				65393FB3255DE34900F7C4E3 /* WhatsUpTests */,
+				65393FBE255DE34900F7C4E3 /* WhatsUpUITests */,
+				65393F9B255DE34200F7C4E3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65393F9B255DE34200F7C4E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65393F9A255DE34200F7C4E3 /* WhatsUp.app */,
+				65393FB0255DE34900F7C4E3 /* WhatsUpTests.xctest */,
+				65393FBB255DE34900F7C4E3 /* WhatsUpUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65393F9C255DE34200F7C4E3 /* WhatsUp */ = {
+			isa = PBXGroup;
+			children = (
+				B2448183259BCF93001EEE5D /* UI */,
+				B2448127259B9252001EEE5D /* Data */,
+				65393F9D255DE34200F7C4E3 /* WhatsUpApp.swift */,
+				65393FA1255DE34800F7C4E3 /* Assets.xcassets */,
+				65393FA6255DE34800F7C4E3 /* Persistence.swift */,
+				65393FAB255DE34800F7C4E3 /* Info.plist */,
+				65393FA3255DE34800F7C4E3 /* Preview Content */,
+			);
+			path = WhatsUp;
+			sourceTree = "<group>";
+		};
+		65393FA3255DE34800F7C4E3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				65393FA4255DE34800F7C4E3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		65393FB3255DE34900F7C4E3 /* WhatsUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				65393FB4255DE34900F7C4E3 /* WhatsUpTests.swift */,
+				65393FB6255DE34900F7C4E3 /* Info.plist */,
+			);
+			path = WhatsUpTests;
+			sourceTree = "<group>";
+		};
+		65393FBE255DE34900F7C4E3 /* WhatsUpUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65393FBF255DE34900F7C4E3 /* WhatsUpUITests.swift */,
+				65393FC1255DE34900F7C4E3 /* Info.plist */,
+			);
+			path = WhatsUpUITests;
+			sourceTree = "<group>";
+		};
+		B2448127259B9252001EEE5D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B24481A3259BE006001EEE5D /* Entities */,
+				B244819D259BDEFA001EEE5D /* WhatsUp.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B2448183259BCF93001EEE5D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B24481AE259CDF41001EEE5D /* Reactions */,
+				B2A1885E2597830A0073331E /* Background */,
+				B2448184259BCF9D001EEE5D /* Home */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B2448184259BCF9D001EEE5D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				65393F9F255DE34200F7C4E3 /* HomeView.swift */,
+				B2448186259BCFD5001EEE5D /* EmotionView.swift */,
+				B244818B259BD05C001EEE5D /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B24481A3259BE006001EEE5D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B24481E425A0A15F001EEE5D /* Emotion+CoreDataClass.swift */,
+				B24481E525A0A15F001EEE5D /* Emotion+CoreDataProperties.swift */,
+				B24481E625A0A15F001EEE5D /* Reaction+CoreDataClass.swift */,
+				B24481E725A0A15F001EEE5D /* Reaction+CoreDataProperties.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B24481AE259CDF41001EEE5D /* Reactions */ = {
+			isa = PBXGroup;
+			children = (
+				B24481AF259CDF63001EEE5D /* ReactionsView.swift */,
+				B24481B7259CE87F001EEE5D /* ReactionRowView.swift */,
+				B24481C6259FCE98001EEE5D /* ReactionsViewModel.swift */,
+			);
+			path = Reactions;
+			sourceTree = "<group>";
+		};
+		B2A1885E2597830A0073331E /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				B2A1885F259783480073331E /* Background.swift */,
+				B2A1887D2599267A0073331E /* Triangle.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65393F99255DE34200F7C4E3 /* WhatsUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65393FC4255DE34900F7C4E3 /* Build configuration list for PBXNativeTarget "WhatsUp" */;
+			buildPhases = (
+				65393F96255DE34200F7C4E3 /* Sources */,
+				65393F97255DE34200F7C4E3 /* Frameworks */,
+				65393F98255DE34200F7C4E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhatsUp;
+			productName = WhatsUp;
+			productReference = 65393F9A255DE34200F7C4E3 /* WhatsUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65393FAF255DE34900F7C4E3 /* WhatsUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65393FC7255DE34900F7C4E3 /* Build configuration list for PBXNativeTarget "WhatsUpTests" */;
+			buildPhases = (
+				65393FAC255DE34900F7C4E3 /* Sources */,
+				65393FAD255DE34900F7C4E3 /* Frameworks */,
+				65393FAE255DE34900F7C4E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65393FB2255DE34900F7C4E3 /* PBXTargetDependency */,
+			);
+			name = WhatsUpTests;
+			productName = WhatsUpTests;
+			productReference = 65393FB0255DE34900F7C4E3 /* WhatsUpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		65393FBA255DE34900F7C4E3 /* WhatsUpUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65393FCA255DE34900F7C4E3 /* Build configuration list for PBXNativeTarget "WhatsUpUITests" */;
+			buildPhases = (
+				65393FB7255DE34900F7C4E3 /* Sources */,
+				65393FB8255DE34900F7C4E3 /* Frameworks */,
+				65393FB9255DE34900F7C4E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65393FBD255DE34900F7C4E3 /* PBXTargetDependency */,
+			);
+			name = WhatsUpUITests;
+			productName = WhatsUpUITests;
+			productReference = 65393FBB255DE34900F7C4E3 /* WhatsUpUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65393F92255DE34200F7C4E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					65393F99255DE34200F7C4E3 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					65393FAF255DE34900F7C4E3 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 65393F99255DE34200F7C4E3;
+					};
+					65393FBA255DE34900F7C4E3 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 65393F99255DE34200F7C4E3;
+					};
+				};
+			};
+			buildConfigurationList = 65393F95255DE34200F7C4E3 /* Build configuration list for PBXProject "WhatsUp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65393F91255DE34200F7C4E3;
+			productRefGroup = 65393F9B255DE34200F7C4E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65393F99255DE34200F7C4E3 /* WhatsUp */,
+				65393FAF255DE34900F7C4E3 /* WhatsUpTests */,
+				65393FBA255DE34900F7C4E3 /* WhatsUpUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65393F98255DE34200F7C4E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65393FA5255DE34800F7C4E3 /* Preview Assets.xcassets in Resources */,
+				65393FA2255DE34800F7C4E3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65393FAE255DE34900F7C4E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65393FB9255DE34900F7C4E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65393F96255DE34200F7C4E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B24481EA25A0A15F001EEE5D /* Reaction+CoreDataClass.swift in Sources */,
+				B24481B8259CE87F001EEE5D /* ReactionRowView.swift in Sources */,
+				B244819F259BDEFA001EEE5D /* WhatsUp.xcdatamodeld in Sources */,
+				B2448187259BCFD5001EEE5D /* EmotionView.swift in Sources */,
+				65393FA7255DE34800F7C4E3 /* Persistence.swift in Sources */,
+				65393FA0255DE34200F7C4E3 /* HomeView.swift in Sources */,
+				B24481E925A0A15F001EEE5D /* Emotion+CoreDataProperties.swift in Sources */,
+				B24481E825A0A15F001EEE5D /* Emotion+CoreDataClass.swift in Sources */,
+				B2A1887E2599267A0073331E /* Triangle.swift in Sources */,
+				B244818C259BD05C001EEE5D /* HomeViewModel.swift in Sources */,
+				65393F9E255DE34200F7C4E3 /* WhatsUpApp.swift in Sources */,
+				B24481B0259CDF63001EEE5D /* ReactionsView.swift in Sources */,
+				B2A18860259783480073331E /* Background.swift in Sources */,
+				B24481EB25A0A15F001EEE5D /* Reaction+CoreDataProperties.swift in Sources */,
+				B24481C7259FCE98001EEE5D /* ReactionsViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65393FAC255DE34900F7C4E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65393FB5255DE34900F7C4E3 /* WhatsUpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65393FB7255DE34900F7C4E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65393FC0255DE34900F7C4E3 /* WhatsUpUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65393FB2255DE34900F7C4E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65393F99255DE34200F7C4E3 /* WhatsUp */;
+			targetProxy = 65393FB1255DE34900F7C4E3 /* PBXContainerItemProxy */;
+		};
+		65393FBD255DE34900F7C4E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65393F99255DE34200F7C4E3 /* WhatsUp */;
+			targetProxy = 65393FBC255DE34900F7C4E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		65393FC2255DE34900F7C4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65393FC3255DE34900F7C4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65393FC5255DE34900F7C4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"WhatsUp/Preview Content\"";
+				DEVELOPMENT_TEAM = 46UZR42QB5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WhatsUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danielsafronov.WhatsUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65393FC6255DE34900F7C4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"WhatsUp/Preview Content\"";
+				DEVELOPMENT_TEAM = 46UZR42QB5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WhatsUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danielsafronov.WhatsUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		65393FC8255DE34900F7C4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsUpTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danielsafronov.WhatsUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsUp.app/WhatsUp";
+			};
+			name = Debug;
+		};
+		65393FC9255DE34900F7C4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsUpTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danielsafronov.WhatsUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsUp.app/WhatsUp";
+			};
+			name = Release;
+		};
+		65393FCB255DE34900F7C4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsUpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danielsafronov.WhatsUpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WhatsUp;
+			};
+			name = Debug;
+		};
+		65393FCC255DE34900F7C4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsUpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danielsafronov.WhatsUpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WhatsUp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65393F95255DE34200F7C4E3 /* Build configuration list for PBXProject "WhatsUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65393FC2255DE34900F7C4E3 /* Debug */,
+				65393FC3255DE34900F7C4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65393FC4255DE34900F7C4E3 /* Build configuration list for PBXNativeTarget "WhatsUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65393FC5255DE34900F7C4E3 /* Debug */,
+				65393FC6255DE34900F7C4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65393FC7255DE34900F7C4E3 /* Build configuration list for PBXNativeTarget "WhatsUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65393FC8255DE34900F7C4E3 /* Debug */,
+				65393FC9255DE34900F7C4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65393FCA255DE34900F7C4E3 /* Build configuration list for PBXNativeTarget "WhatsUpUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65393FCB255DE34900F7C4E3 /* Debug */,
+				65393FCC255DE34900F7C4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B244819D259BDEFA001EEE5D /* WhatsUp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B244819E259BDEFA001EEE5D /* WhatsUp.xcdatamodel */,
+			);
+			currentVersion = B244819E259BDEFA001EEE5D /* WhatsUp.xcdatamodel */;
+			path = WhatsUp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 65393F92255DE34200F7C4E3 /* Project object */;
+}
