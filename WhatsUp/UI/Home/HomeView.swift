@@ -10,6 +10,8 @@ import Combine
 import CoreData
 
 struct HomeView: View {
+    @Environment(\.container) var container: Container
+    
     @StateObject var model = HomeViewModel()
     
     var body: some View {
@@ -33,21 +35,41 @@ struct HomeView: View {
                     }
                     .padding()
                     
-                    NavigationLink(destination: ReactionsView()) {
-                        Text("Reactions")
-                            .foregroundColor(
-                                Color(
-                                    red: 134 / 255,
-                                    green: 104 / 255,
-                                    blue: 83 / 255
-                                )
-                            )
-                            .textCase(.uppercase)
-                    }
+                    Link(
+                        destination: EmotionsView(
+                            model: .init(container: self.container)
+                        ),
+                        label: "Emotions"
+                    )
                     
+                    Link(
+                        destination: ReactionsView(
+                            model: .init(container: self.container)
+                        ),
+                        label: "Reactions"
+                    )
                 }
             }
             .navigationBarHidden(true)
+        }
+    }
+}
+
+private struct Link<Destination>: View where Destination : View {
+    let destination: Destination
+    let label: String
+    
+    var body: some View {
+        NavigationLink(destination: destination) {
+            Text(label)
+                .foregroundColor(
+                    Color(
+                        red: 134 / 255,
+                        green: 104 / 255,
+                        blue: 83 / 255
+                    )
+                )
+                .textCase(.uppercase)
         }
     }
 }

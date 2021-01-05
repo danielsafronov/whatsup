@@ -10,7 +10,7 @@ import Combine
 import CoreData
 
 struct ReactionsView: View {
-    @StateObject var model = ReactionsViewModel()
+    @ObservedObject private(set) var model: ReactionsViewModel
     
     var body: some View {
         VStack {
@@ -30,26 +30,6 @@ struct ReactionsView: View {
 
 struct ReactionsView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.preview.container.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Reaction")
-        
-        var reactions: [Reaction] = []
-        
-        do {
-            reactions = try context.fetch(request) as! [Reaction]
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        let model = ReactionsViewModel()
-        model.reactions = reactions
-        
-        return Group {
-            ReactionsView(model: model)
-                .environment(\.colorScheme, .light)
-            
-            ReactionsView(model: model)
-                .environment(\.colorScheme, .dark)
-        }
+        return ReactionsView(model: .init(container: .preview))
     }
 }

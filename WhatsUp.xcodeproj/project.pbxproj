@@ -24,8 +24,22 @@
 		B24481E925A0A15F001EEE5D /* Emotion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481E525A0A15F001EEE5D /* Emotion+CoreDataProperties.swift */; };
 		B24481EA25A0A15F001EEE5D /* Reaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481E625A0A15F001EEE5D /* Reaction+CoreDataClass.swift */; };
 		B24481EB25A0A15F001EEE5D /* Reaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481E725A0A15F001EEE5D /* Reaction+CoreDataProperties.swift */; };
+		B24481F025A0AE9D001EEE5D /* default.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481EF25A0AE9D001EEE5D /* default.swift */; };
+		B24481F725A0BE65001EEE5D /* EmotionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24481F625A0BE65001EEE5D /* EmotionsView.swift */; };
+		B244820425A0C03F001EEE5D /* EmotionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244820325A0C03F001EEE5D /* EmotionRowView.swift */; };
+		B244820925A0C6C1001EEE5D /* EmotionCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244820825A0C6C1001EEE5D /* EmotionCreateView.swift */; };
+		B244821825A226F7001EEE5D /* EmotionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244821725A226F7001EEE5D /* EmotionRepository.swift */; };
+		B244822125A22B51001EEE5D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244822025A22B51001EEE5D /* Container.swift */; };
+		B244822625A2660F001EEE5D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244822525A2660F001EEE5D /* Application.swift */; };
+		B244822B25A2674C001EEE5D /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244822A25A2674C001EEE5D /* Repositories.swift */; };
+		B244823125A26F00001EEE5D /* Interactors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244823025A26F00001EEE5D /* Interactors.swift */; };
+		B244823925A26F2D001EEE5D /* EmotionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244823825A26F2D001EEE5D /* EmotionInteractor.swift */; };
+		B290360825A37863000486EB /* EmotionCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290360725A37863000486EB /* EmotionCreateViewModel.swift */; };
+		B290360D25A381E4000486EB /* EmotionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290360C25A381E4000486EB /* EmotionsViewModel.swift */; };
 		B2A18860259783480073331E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A1885F259783480073331E /* Background.swift */; };
 		B2A1887E2599267A0073331E /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A1887D2599267A0073331E /* Triangle.swift */; };
+		B2E5287725A5083F007361B8 /* ReactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5287625A5083F007361B8 /* ReactionInteractor.swift */; };
+		B2E5287C25A508D2007361B8 /* ReactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5287B25A508D2007361B8 /* ReactionRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +83,22 @@
 		B24481E525A0A15F001EEE5D /* Emotion+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Emotion+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B24481E625A0A15F001EEE5D /* Reaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B24481E725A0A15F001EEE5D /* Reaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B24481EF25A0AE9D001EEE5D /* default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = default.swift; sourceTree = "<group>"; };
+		B24481F625A0BE65001EEE5D /* EmotionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsView.swift; sourceTree = "<group>"; };
+		B244820325A0C03F001EEE5D /* EmotionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionRowView.swift; sourceTree = "<group>"; };
+		B244820825A0C6C1001EEE5D /* EmotionCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCreateView.swift; sourceTree = "<group>"; };
+		B244821725A226F7001EEE5D /* EmotionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionRepository.swift; sourceTree = "<group>"; };
+		B244822025A22B51001EEE5D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		B244822525A2660F001EEE5D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		B244822A25A2674C001EEE5D /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		B244823025A26F00001EEE5D /* Interactors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactors.swift; sourceTree = "<group>"; };
+		B244823825A26F2D001EEE5D /* EmotionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionInteractor.swift; sourceTree = "<group>"; };
+		B290360725A37863000486EB /* EmotionCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCreateViewModel.swift; sourceTree = "<group>"; };
+		B290360C25A381E4000486EB /* EmotionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsViewModel.swift; sourceTree = "<group>"; };
 		B2A1885F259783480073331E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		B2A1887D2599267A0073331E /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		B2E5287625A5083F007361B8 /* ReactionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionInteractor.swift; sourceTree = "<group>"; };
+		B2E5287B25A508D2007361B8 /* ReactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +149,8 @@
 		65393F9C255DE34200F7C4E3 /* WhatsUp */ = {
 			isa = PBXGroup;
 			children = (
+				B244822F25A26ED6001EEE5D /* Interactors */,
+				B244821F25A22AE4001EEE5D /* DI */,
 				B2448183259BCF93001EEE5D /* UI */,
 				B2448127259B9252001EEE5D /* Data */,
 				65393F9D255DE34200F7C4E3 /* WhatsUpApp.swift */,
@@ -128,6 +158,7 @@
 				65393FA6255DE34800F7C4E3 /* Persistence.swift */,
 				65393FAB255DE34800F7C4E3 /* Info.plist */,
 				65393FA3255DE34800F7C4E3 /* Preview Content */,
+				B244822525A2660F001EEE5D /* Application.swift */,
 			);
 			path = WhatsUp;
 			sourceTree = "<group>";
@@ -161,8 +192,10 @@
 		B2448127259B9252001EEE5D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B244821625A226DC001EEE5D /* Repositories */,
 				B24481A3259BE006001EEE5D /* Entities */,
 				B244819D259BDEFA001EEE5D /* WhatsUp.xcdatamodeld */,
+				B24481EF25A0AE9D001EEE5D /* default.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -170,6 +203,7 @@
 		B2448183259BCF93001EEE5D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B24481F425A0BE36001EEE5D /* Emotions */,
 				B24481AE259CDF41001EEE5D /* Reactions */,
 				B2A1885E2597830A0073331E /* Background */,
 				B2448184259BCF9D001EEE5D /* Home */,
@@ -206,6 +240,46 @@
 				B24481C6259FCE98001EEE5D /* ReactionsViewModel.swift */,
 			);
 			path = Reactions;
+			sourceTree = "<group>";
+		};
+		B24481F425A0BE36001EEE5D /* Emotions */ = {
+			isa = PBXGroup;
+			children = (
+				B24481F625A0BE65001EEE5D /* EmotionsView.swift */,
+				B244820325A0C03F001EEE5D /* EmotionRowView.swift */,
+				B244820825A0C6C1001EEE5D /* EmotionCreateView.swift */,
+				B290360725A37863000486EB /* EmotionCreateViewModel.swift */,
+				B290360C25A381E4000486EB /* EmotionsViewModel.swift */,
+			);
+			path = Emotions;
+			sourceTree = "<group>";
+		};
+		B244821625A226DC001EEE5D /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B244821725A226F7001EEE5D /* EmotionRepository.swift */,
+				B244822A25A2674C001EEE5D /* Repositories.swift */,
+				B2E5287B25A508D2007361B8 /* ReactionRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B244821F25A22AE4001EEE5D /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				B244822025A22B51001EEE5D /* Container.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		B244822F25A26ED6001EEE5D /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				B244823025A26F00001EEE5D /* Interactors.swift */,
+				B244823825A26F2D001EEE5D /* EmotionInteractor.swift */,
+				B2E5287625A5083F007361B8 /* ReactionInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 		B2A1885E2597830A0073331E /* Background */ = {
@@ -346,21 +420,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B244822625A2660F001EEE5D /* Application.swift in Sources */,
 				B24481EA25A0A15F001EEE5D /* Reaction+CoreDataClass.swift in Sources */,
 				B24481B8259CE87F001EEE5D /* ReactionRowView.swift in Sources */,
 				B244819F259BDEFA001EEE5D /* WhatsUp.xcdatamodeld in Sources */,
+				B244820425A0C03F001EEE5D /* EmotionRowView.swift in Sources */,
+				B244820925A0C6C1001EEE5D /* EmotionCreateView.swift in Sources */,
+				B244822B25A2674C001EEE5D /* Repositories.swift in Sources */,
+				B290360D25A381E4000486EB /* EmotionsViewModel.swift in Sources */,
 				B2448187259BCFD5001EEE5D /* EmotionView.swift in Sources */,
 				65393FA7255DE34800F7C4E3 /* Persistence.swift in Sources */,
 				65393FA0255DE34200F7C4E3 /* HomeView.swift in Sources */,
+				B244823125A26F00001EEE5D /* Interactors.swift in Sources */,
 				B24481E925A0A15F001EEE5D /* Emotion+CoreDataProperties.swift in Sources */,
 				B24481E825A0A15F001EEE5D /* Emotion+CoreDataClass.swift in Sources */,
 				B2A1887E2599267A0073331E /* Triangle.swift in Sources */,
+				B2E5287C25A508D2007361B8 /* ReactionRepository.swift in Sources */,
 				B244818C259BD05C001EEE5D /* HomeViewModel.swift in Sources */,
 				65393F9E255DE34200F7C4E3 /* WhatsUpApp.swift in Sources */,
+				B244821825A226F7001EEE5D /* EmotionRepository.swift in Sources */,
+				B244823925A26F2D001EEE5D /* EmotionInteractor.swift in Sources */,
 				B24481B0259CDF63001EEE5D /* ReactionsView.swift in Sources */,
 				B2A18860259783480073331E /* Background.swift in Sources */,
+				B290360825A37863000486EB /* EmotionCreateViewModel.swift in Sources */,
+				B24481F025A0AE9D001EEE5D /* default.swift in Sources */,
+				B2E5287725A5083F007361B8 /* ReactionInteractor.swift in Sources */,
 				B24481EB25A0A15F001EEE5D /* Reaction+CoreDataProperties.swift in Sources */,
+				B244822125A22B51001EEE5D /* Container.swift in Sources */,
 				B24481C7259FCE98001EEE5D /* ReactionsViewModel.swift in Sources */,
+				B24481F725A0BE65001EEE5D /* EmotionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

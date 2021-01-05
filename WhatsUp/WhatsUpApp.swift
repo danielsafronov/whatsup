@@ -14,6 +14,7 @@ struct WhatsUpApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(\.container, Application.bootstrap.container)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

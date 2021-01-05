@@ -13,11 +13,11 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         let context = controller.container.viewContext
-        for (index, title) in ["🙂", "😐", "🙁"].enumerated() {
+        for pair in emotions {
             let emotion = Emotion(context: context)
             emotion.id = UUID()
-            emotion.index = Int64(index)
-            emotion.name = title
+            emotion.index = Int64(pair.key)
+            emotion.name = pair.value
             
             let reaction = Reaction(context: context)
             reaction.id = UUID()
@@ -39,9 +39,11 @@ struct PersistenceController {
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "WhatsUp")
+        
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
