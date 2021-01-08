@@ -17,25 +17,27 @@ struct EmotionsView: View {
             ForEach(model.emotions) { emotion in
                 EmotionRowView(emotion: emotion)
             }
+            .onDelete(perform: model.delete)
         }
         .listStyle(InsetGroupedListStyle())
+        .sheet(isPresented: $model.isCreateSheetPresented) {
+            NavigationView {
+                EmotionCreateView(
+                    model: .init(
+                        container: model.container,
+                        isPresented: $model.isCreateSheetPresented
+                    )
+                )
+            }
+        }
         .navigationBarTitle("Emotions", displayMode: .inline)
         .navigationBarItems(
             trailing:
                 Button(
                     "Add",
-                    action: { model.isCreateSheetPresented.toggle() }
+                    action: { model.isCreateSheetPresented = true }
                 )
-                .sheet(isPresented: $model.isCreateSheetPresented) {
-                    NavigationView {
-                        EmotionCreateView(
-                            model: .init(
-                                container: model.container,
-                                isPresented: $model.isCreateSheetPresented
-                            )
-                        )
-                    }
-                }
+                
         )
     }
 }

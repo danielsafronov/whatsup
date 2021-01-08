@@ -13,7 +13,6 @@ class EmotionCreateViewModel: ObservableObject {
     @Published var name: String = ""
     
     private let isPresented: Binding<Bool>
-    
     private let container: Container
     
     init(container: Container, isPresented: Binding<Bool>) {

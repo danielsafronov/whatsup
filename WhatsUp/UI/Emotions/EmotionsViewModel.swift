@@ -14,12 +14,38 @@ class EmotionsViewModel: ObservableObject {
     
     let container: Container
     
+    private var cancellableBag = Set<AnyCancellable>()
+    
     init(container: Container) {
         self.container = container
-        self.emotions = getEmotions()
+        
+        loadEmotions()
     }
     
-    private func getEmotions() -> [Emotion] {
-        return container.interactors.emotion.getEmotions()
+    private func loadEmotions() {
+        observeEmotions()
+            .receive(on: RunLoop.main)
+            .sink(
+                receiveCompletion: {_ in },
+                receiveValue: { [self] emotions in
+                    self.emotions = emotions
+                }
+            )
+            .store(in: &cancellableBag)
+    }
+    
+    private func observeEmotions() -> AnyPublisher<[Emotion], Error> {
+        return container.interactors.emotion.observeEmotions()
+    }
+    
+    func delete(at offsets: IndexSet) -> Void {
+        for index in offsets {
+            let emotion = emotions[index]
+            delete(emotion: emotion)
+        }
+    }
+    
+    private func delete(emotion: Emotion) -> Void {
+        container.interactors.emotion.deleteEmotion(emotion: emotion)
     }
 }

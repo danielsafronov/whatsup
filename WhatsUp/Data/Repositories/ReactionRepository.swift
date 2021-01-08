@@ -10,31 +10,31 @@ import Combine
 import CoreData
 
 protocol ReactionRepositoryProtocol {
-    func getReactions() -> [Reaction]
+    func observeReactions() -> AnyPublisher<[Reaction], Error>
 }
 
 struct ReactionRepository: ReactionRepositoryProtocol {
-    let context: NSManagedObjectContext
+    let store: Store
     
-    func getReactions() -> [Reaction] {
-        let request: NSFetchRequest<Reaction> = Reaction.fetchRequest()
-        do {
-            return try context.fetch(request)
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    func observeReactions() -> AnyPublisher<[Reaction], Error> {
+        return store.fetch { _ in
+            Reaction.fetchRequest()
         }
     }
 }
 
 struct DefaultReactionRepository: ReactionRepositoryProtocol {
-    func getReactions() -> [Reaction] {
-        return []
+    func observeReactions() -> AnyPublisher<[Reaction], Error> {
+        return Just<[Reaction]>([])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
 }
 
 struct PreviewReactionRepository: ReactionRepositoryProtocol {
-    func getReactions() -> [Reaction] {
-        return []
+    func observeReactions() -> AnyPublisher<[Reaction], Error> {
+        return Just<[Reaction]>([])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
 }

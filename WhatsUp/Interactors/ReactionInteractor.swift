@@ -9,14 +9,14 @@ import Foundation
 import Combine
 
 protocol ReactionInteractorProtocol {
-    func getReactions() -> [Reaction]
+    func observeReactions() -> AnyPublisher<[Reaction], Error>
 }
 
 struct ReactionInteractor: ReactionInteractorProtocol {
     let repository: ReactionRepositoryProtocol
     
-    func getReactions() -> [Reaction] {
-        return repository.getReactions()
+    func observeReactions() -> AnyPublisher<[Reaction], Error> {
+        return repository.observeReactions()
     }
 }
 

@@ -11,7 +11,7 @@
 		65393FA0255DE34200F7C4E3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393F9F255DE34200F7C4E3 /* HomeView.swift */; };
 		65393FA2255DE34800F7C4E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65393FA1255DE34800F7C4E3 /* Assets.xcassets */; };
 		65393FA5255DE34800F7C4E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65393FA4255DE34800F7C4E3 /* Preview Assets.xcassets */; };
-		65393FA7255DE34800F7C4E3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393FA6255DE34800F7C4E3 /* Persistence.swift */; };
+		65393FA7255DE34800F7C4E3 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393FA6255DE34800F7C4E3 /* PersistenceController.swift */; };
 		65393FB5255DE34900F7C4E3 /* WhatsUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393FB4255DE34900F7C4E3 /* WhatsUpTests.swift */; };
 		65393FC0255DE34900F7C4E3 /* WhatsUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65393FBF255DE34900F7C4E3 /* WhatsUpUITests.swift */; };
 		B2448187259BCFD5001EEE5D /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2448186259BCFD5001EEE5D /* EmotionView.swift */; };
@@ -34,6 +34,7 @@
 		B244822B25A2674C001EEE5D /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244822A25A2674C001EEE5D /* Repositories.swift */; };
 		B244823125A26F00001EEE5D /* Interactors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244823025A26F00001EEE5D /* Interactors.swift */; };
 		B244823925A26F2D001EEE5D /* EmotionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244823825A26F2D001EEE5D /* EmotionInteractor.swift */; };
+		B25A8EC725A6693A0022DC0D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A8EC625A6693A0022DC0D /* Store.swift */; };
 		B290360825A37863000486EB /* EmotionCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290360725A37863000486EB /* EmotionCreateViewModel.swift */; };
 		B290360D25A381E4000486EB /* EmotionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290360C25A381E4000486EB /* EmotionsViewModel.swift */; };
 		B2A18860259783480073331E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A1885F259783480073331E /* Background.swift */; };
@@ -65,7 +66,7 @@
 		65393F9F255DE34200F7C4E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		65393FA1255DE34800F7C4E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65393FA4255DE34800F7C4E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		65393FA6255DE34800F7C4E3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		65393FA6255DE34800F7C4E3 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		65393FAB255DE34800F7C4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65393FB0255DE34900F7C4E3 /* WhatsUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65393FB4255DE34900F7C4E3 /* WhatsUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsUpTests.swift; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		B244822A25A2674C001EEE5D /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		B244823025A26F00001EEE5D /* Interactors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactors.swift; sourceTree = "<group>"; };
 		B244823825A26F2D001EEE5D /* EmotionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionInteractor.swift; sourceTree = "<group>"; };
+		B25A8EC625A6693A0022DC0D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		B290360725A37863000486EB /* EmotionCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCreateViewModel.swift; sourceTree = "<group>"; };
 		B290360C25A381E4000486EB /* EmotionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsViewModel.swift; sourceTree = "<group>"; };
 		B2A1885F259783480073331E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -149,13 +151,13 @@
 		65393F9C255DE34200F7C4E3 /* WhatsUp */ = {
 			isa = PBXGroup;
 			children = (
+				B25A8EC225A668510022DC0D /* Persistence */,
 				B244822F25A26ED6001EEE5D /* Interactors */,
 				B244821F25A22AE4001EEE5D /* DI */,
 				B2448183259BCF93001EEE5D /* UI */,
 				B2448127259B9252001EEE5D /* Data */,
 				65393F9D255DE34200F7C4E3 /* WhatsUpApp.swift */,
 				65393FA1255DE34800F7C4E3 /* Assets.xcassets */,
-				65393FA6255DE34800F7C4E3 /* Persistence.swift */,
 				65393FAB255DE34800F7C4E3 /* Info.plist */,
 				65393FA3255DE34800F7C4E3 /* Preview Content */,
 				B244822525A2660F001EEE5D /* Application.swift */,
@@ -280,6 +282,15 @@
 				B2E5287625A5083F007361B8 /* ReactionInteractor.swift */,
 			);
 			path = Interactors;
+			sourceTree = "<group>";
+		};
+		B25A8EC225A668510022DC0D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				65393FA6255DE34800F7C4E3 /* PersistenceController.swift */,
+				B25A8EC625A6693A0022DC0D /* Store.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		B2A1885E2597830A0073331E /* Background */ = {
@@ -429,12 +440,13 @@
 				B244822B25A2674C001EEE5D /* Repositories.swift in Sources */,
 				B290360D25A381E4000486EB /* EmotionsViewModel.swift in Sources */,
 				B2448187259BCFD5001EEE5D /* EmotionView.swift in Sources */,
-				65393FA7255DE34800F7C4E3 /* Persistence.swift in Sources */,
+				65393FA7255DE34800F7C4E3 /* PersistenceController.swift in Sources */,
 				65393FA0255DE34200F7C4E3 /* HomeView.swift in Sources */,
 				B244823125A26F00001EEE5D /* Interactors.swift in Sources */,
 				B24481E925A0A15F001EEE5D /* Emotion+CoreDataProperties.swift in Sources */,
 				B24481E825A0A15F001EEE5D /* Emotion+CoreDataClass.swift in Sources */,
 				B2A1887E2599267A0073331E /* Triangle.swift in Sources */,
+				B25A8EC725A6693A0022DC0D /* Store.swift in Sources */,
 				B2E5287C25A508D2007361B8 /* ReactionRepository.swift in Sources */,
 				B244818C259BD05C001EEE5D /* HomeViewModel.swift in Sources */,
 				65393F9E255DE34200F7C4E3 /* WhatsUpApp.swift in Sources */,

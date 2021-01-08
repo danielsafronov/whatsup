@@ -10,50 +10,56 @@ import CoreData
 import Combine
 
 protocol EmotionRepositoryProtocol {
-    func getEmotions() -> [Emotion]
+    func observeEmotions() -> AnyPublisher<[Emotion], Error>
     func saveEmotion(name: String) -> Void
+    func deleteEmotion(emotion: Emotion) -> Void
 }
 
 struct EmotionRepository: EmotionRepositoryProtocol {
-    let context: NSManagedObjectContext
+    let store: Store
     
-    func getEmotions() -> [Emotion] {
-        let request: NSFetchRequest<Emotion> = Emotion.fetchRequest()
-        do {
-            return try context.fetch(request)
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    func observeEmotions() -> AnyPublisher<[Emotion], Error> {
+        return store.fetch { _ in
+            Emotion.fetchRequest()
         }
     }
     
     func saveEmotion(name: String) -> Void {
-        let entry = Emotion(context: context)
-        entry.id = UUID()
-        entry.index = Int64(0)
-        entry.name = name
-        
-        do {
-            try context.save()
-        } catch {
-            let nsError = error as NSError
-            print(nsError.localizedDescription)
+        store.store { context in
+            let entry = Emotion(context: context)
+            entry.id = UUID()
+            entry.index = Int64(0)
+            entry.name = name
+        }
+    }
+    
+    func deleteEmotion(emotion: Emotion) {
+        store.delete { context in
+            context.delete(emotion)
         }
     }
 }
 
 struct DefaultEmotionRepository: EmotionRepositoryProtocol {
-    func getEmotions() -> [Emotion] {
-        return []
+    func observeEmotions() -> AnyPublisher<[Emotion], Error> {
+        return Just<[Emotion]>([])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
     
     func saveEmotion(name: String) {}
+    
+    func deleteEmotion(emotion: Emotion) { }
 }
 
 struct PreviewEmotionRepository: EmotionRepositoryProtocol {
-    func getEmotions() -> [Emotion] {
-        return []
+    func observeEmotions() -> AnyPublisher<[Emotion], Error> {
+        return Just<[Emotion]>([])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
     
     func saveEmotion(name: String) {}
+    
+    func deleteEmotion(emotion: Emotion) { }
 }
