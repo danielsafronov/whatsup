@@ -26,20 +26,10 @@ struct EmotionRowView: View {
 
 struct EmotionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.preview.container.viewContext
-        let request: NSFetchRequest<Emotion> = Emotion.fetchRequest()
-        request.fetchLimit = 1
-        
-        var emotions: [Emotion] = []
-        
-        do {
-            emotions = try context.fetch(request)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
         return Group {
-            EmotionRowView(emotion: emotions.first)
+            EmotionRowView(
+                emotion: .init(id: UUID(), index: 0, name: "🙂")
+            )
             EmotionRowView()
         }.previewLayout(.fixed(width: 400, height: 70))
     }

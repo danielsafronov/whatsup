@@ -11,32 +11,34 @@ import Combine
 
 protocol EmotionRepositoryProtocol {
     func observeEmotions() -> AnyPublisher<[Emotion], Error>
-    func saveEmotion(name: String) -> Void
-    func deleteEmotion(emotion: Emotion) -> Void
+    func saveEmotion(entry: Emotion) -> Void
+    func deleteEmotion(entry: Emotion) -> Void
 }
 
 struct EmotionRepository: EmotionRepositoryProtocol {
     let store: Store
     
     func observeEmotions() -> AnyPublisher<[Emotion], Error> {
-        return store.fetch { _ in
-            Emotion.fetchRequest()
+        return store.observe(EmotionMO.fetchRequest())
+        .map { objects in
+            objects.compactMap { object in
+                Emotion(mo: object)
+            }
         }
+        .eraseToAnyPublisher()
     }
     
-    func saveEmotion(name: String) -> Void {
-        store.store { context in
-            let entry = Emotion(context: context)
-            entry.id = UUID()
-            entry.index = Int64(0)
-            entry.name = name
-        }
+    func saveEmotion(entry: Emotion) -> Void {
+        store.store(EmotionMO(context: store.context, entry: entry))
     }
     
-    func deleteEmotion(emotion: Emotion) {
-        store.delete { context in
-            context.delete(emotion)
-        }
+    func deleteEmotion(entry: Emotion) {
+        let request: NSFetchRequest<EmotionMO> = EmotionMO.fetchRequest()
+        request.predicate = NSPredicate.init(format: "id == %@", NSUUID(uuidString: entry.id.uuidString)!)
+        request.fetchLimit = 1
+        
+        guard let entity = store.find(request) else { return }
+        store.delete(entity)
     }
 }
 
@@ -47,9 +49,9 @@ struct DefaultEmotionRepository: EmotionRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     
-    func saveEmotion(name: String) {}
+    func saveEmotion(entry: Emotion) {}
     
-    func deleteEmotion(emotion: Emotion) { }
+    func deleteEmotion(entry: Emotion) { }
 }
 
 struct PreviewEmotionRepository: EmotionRepositoryProtocol {
@@ -59,7 +61,7 @@ struct PreviewEmotionRepository: EmotionRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     
-    func saveEmotion(name: String) {}
+    func saveEmotion(entry: Emotion) {}
     
-    func deleteEmotion(emotion: Emotion) { }
+    func deleteEmotion(entry: Emotion) { }
 }

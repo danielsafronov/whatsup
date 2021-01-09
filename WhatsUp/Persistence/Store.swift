@@ -10,13 +10,15 @@ import CoreData
 import Combine
 
 protocol StoreProtocol {
-    func fetch<V>(_ action: @escaping (_ context: NSManagedObjectContext) -> NSFetchRequest<V>) -> AnyPublisher<[V], Error>
-    func store(_ action: @escaping (_ context: NSManagedObjectContext) -> Void) -> Void
-    func delete(_ action: @escaping (_ context: NSManagedObjectContext) -> Void) -> Void
+    func observe<V>(_ request: NSFetchRequest<V>) -> AnyPublisher<[V], Error>
+    func find<V>(_ request: NSFetchRequest<V>) -> V?
+    func store(_ obejct: NSManagedObject) -> Void
+    func delete(_ object: NSManagedObject) -> Void
 }
 
 struct Store: StoreProtocol {
-    private let context: NSManagedObjectContext
+    let context: NSManagedObjectContext
+    
     private let storeTrack = StoreTrack()
     
     init(context: NSManagedObjectContext) {
@@ -29,14 +31,14 @@ struct Store: StoreProtocol {
             .eraseToAnyPublisher()
     }
     
-    func fetch<V>(_ action: @escaping (_ context: NSManagedObjectContext) -> NSFetchRequest<V>) -> AnyPublisher<[V], Error> {
+    func observe<V>(_ observe: NSFetchRequest<V>) -> AnyPublisher<[V], Error> {
         storeTrack.emit()
         
         return track
             .flatMap {
                 RequestPublisher<[V], Error>(context: context) { context in
                     do {
-                        let data = try context.fetch(action(context))
+                        let data = try context.fetch(observe)
                         return data
                     } catch {
                         fatalError("Unresolved error \(error)")
@@ -46,27 +48,34 @@ struct Store: StoreProtocol {
             .eraseToAnyPublisher()
     }
     
-    func store(_ action: @escaping (_ context: NSManagedObjectContext) -> Void) -> Void {
-        action(context)
-        
+    func find<V>(_ request: NSFetchRequest<V>) -> V? {
         do {
-            try context.save()
-            storeTrack.emit()
+            let data = try context.fetch(request)
+            return data.first
         } catch {
-            let nsError = error as NSError
-            print(nsError.localizedDescription)
+            fatalError("Unresolved error \(error)")
         }
     }
     
-    func delete(_ action: @escaping (_ context: NSManagedObjectContext) -> Void) -> Void {
-        action(context)
-        
+    func store(_ object: NSManagedObject) -> Void {
         do {
+            context.insert(object)
+            
             try context.save()
             storeTrack.emit()
         } catch {
-            let nsError = error as NSError
-            print(nsError.localizedDescription)
+            fatalError("Unresolved error \(error)")
+        }
+    }
+    
+    func delete(_ object: NSManagedObject) -> Void {
+        do {
+            context.delete(object)
+            
+            try context.save()
+            storeTrack.emit()
+        } catch {
+            fatalError("Unresolved error \(error)")
         }
     }
 }
@@ -118,7 +127,7 @@ class RequestSubscription<S, Output>: Subscription where S : Subscriber {
     }
     
     func request(_ demand: Subscribers.Demand) {
-        subscriber?.receive(action(context) as! S.Input)
+        _ = subscriber?.receive(action(context) as! S.Input)
     }
     
     func cancel() {

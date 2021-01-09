@@ -17,9 +17,13 @@ struct ReactionRepository: ReactionRepositoryProtocol {
     let store: Store
     
     func observeReactions() -> AnyPublisher<[Reaction], Error> {
-        return store.fetch { _ in
-            Reaction.fetchRequest()
+        return store.observe(ReactionMO.fetchRequest())
+        .map { objects in
+            objects.compactMap { object in
+                Reaction(mo: object)
+            }
         }
+        .eraseToAnyPublisher()
     }
 }
 

@@ -29,6 +29,8 @@ class EmotionCreateViewModel: ObservableObject {
     }
     
     func save() {
-        container.interactors.emotion.saveEmotion(name: name)
+        container.interactors.emotion.saveEmotion(
+            emotion: .init(id: UUID(), index: 0, name: name)
+        )
     }
 }

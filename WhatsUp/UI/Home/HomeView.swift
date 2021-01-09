@@ -30,7 +30,7 @@ struct HomeView: View {
                             .sorted(by: { $0.index > $1.index })
                         
                         ForEach(emotions) { emotion in
-                            EmotionView(title: emotion.name!)
+                            EmotionView(title: emotion.name)
                         }
                     }
                     .padding()

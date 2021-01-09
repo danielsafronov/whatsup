@@ -12,26 +12,6 @@ struct PersistenceController {
 
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
-        let context = controller.container.viewContext
-        for pair in emotions {
-            let emotion = Emotion(context: context)
-            emotion.id = UUID()
-            emotion.index = Int64(pair.key)
-            emotion.name = pair.value
-            
-            let reaction = Reaction(context: context)
-            reaction.id = UUID()
-            reaction.emotion_id = emotion.id
-            reaction.emotion = emotion
-            reaction.timestamp = Date()
-        }
-
-        do {
-            try context.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
         return controller
     }()
 

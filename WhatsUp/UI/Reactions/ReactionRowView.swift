@@ -12,7 +12,7 @@ struct ReactionRowView: View {
     var reaction: Reaction? = nil
     
     var body: some View {
-        let name = reaction?.emotion?.name
+        let name = reaction?.emotionId as? String
         let date = reaction?.timestamp
         
         HStack {
@@ -40,20 +40,9 @@ private let dateFormatter: DateFormatter = {
 
 struct ReactionItemView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.preview.container.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Reaction")
-        request.fetchLimit = 1
-        
-        var reactions: [Reaction] = []
-        
-        do {
-            reactions = try context.fetch(request) as! [Reaction]
-        } catch {
-            print(error.localizedDescription)
-        }
-        
         return Group {
-            ReactionRowView(reaction: reactions[0])
+            ReactionRowView(
+                reaction: .init(id: UUID(), emotionId: UUID(), timestamp: Date()))
             ReactionRowView()
         }.previewLayout(.fixed(width: 400, height: 70))
     }
