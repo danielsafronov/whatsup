@@ -14,6 +14,7 @@ protocol StoreProtocol {
     func find<V>(_ request: NSFetchRequest<V>) -> V?
     func store(_ obejct: NSManagedObject) -> Void
     func delete(_ object: NSManagedObject) -> Void
+    func update(_ object: NSManagedObject) -> Void
 }
 
 struct Store: StoreProtocol {
@@ -71,6 +72,17 @@ struct Store: StoreProtocol {
     func delete(_ object: NSManagedObject) -> Void {
         do {
             context.delete(object)
+            
+            try context.save()
+            storeTrack.emit()
+        } catch {
+            fatalError("Unresolved error \(error)")
+        }
+    }
+    
+    func update(_ object: NSManagedObject) {
+        do {
+            context.refresh(object, mergeChanges: true)
             
             try context.save()
             storeTrack.emit()
