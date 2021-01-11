@@ -48,4 +48,16 @@ class EmotionsViewModel: ObservableObject {
     private func delete(emotion: Emotion) -> Void {
         container.interactors.emotion.deleteEmotion(emotion: emotion)
     }
+    
+    func update(emotion: Emotion) -> Void {
+        let emotion = emotion
+        container.interactors.emotion.updateEmotion(
+            emotion: .init(
+                id: emotion.id,
+                index: emotion.index,
+                isPinned: emotion.isPinned,
+                name: emotion.name
+            )
+        )
+    }
 }

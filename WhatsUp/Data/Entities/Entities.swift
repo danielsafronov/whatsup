@@ -10,6 +10,7 @@ import Foundation
 struct Emotion: Identifiable, Codable, Equatable {
     let id: UUID
     let index: Int
+    let isPinned: Bool
     let name: String
 }
 

@@ -15,7 +15,12 @@ struct EmotionsView: View {
     var body: some View {
         List {
             ForEach(model.emotions) { emotion in
-                EmotionRowView(emotion: emotion)
+                EmotionRowView(
+                    emotion: emotion,
+                    onChange: { emotion in
+                        model.update(emotion: emotion)
+                    }
+                )
             }
             .onDelete(perform: model.delete)
         }
@@ -35,15 +40,19 @@ struct EmotionsView: View {
             trailing:
                 Button(
                     "Add",
-                    action: { model.isCreateSheetPresented = true }
+                    action: { model.isCreateSheetPresented.toggle() }
                 )
-                
         )
     }
 }
 
 struct EmotionsView_Previews: PreviewProvider {
     static var previews: some View {
-        return EmotionsView(model: .init(container: .preview))
+        let container: Container = .preview
+        let emotion = Emotion(id: UUID(), index: 0, isPinned: true, name: "🙂")
+        let model = EmotionsViewModel(container: container)
+        model.emotions = [emotion]
+        
+        return EmotionsView(model: model)
     }
 }

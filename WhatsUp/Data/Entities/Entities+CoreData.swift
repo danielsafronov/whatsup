@@ -12,9 +12,10 @@ extension Emotion {
     init?(mo: EmotionMO) {
         guard let id = mo.id else { return nil }
         let index = Int(mo.index)
+        let isPinned = mo.isPinned
         guard let name = mo.name else { return nil }
         
-        self.init(id: id, index: index, name: name)
+        self.init(id: id, index: index, isPinned: isPinned, name: name)
     }
 }
 
@@ -24,7 +25,16 @@ extension EmotionMO {
         
         id = entry.id
         index = Int64(entry.index)
+        isPinned = entry.isPinned
         name = entry.name
+    }
+    
+    static func fetchOneByIdRequest(id: UUID) -> NSFetchRequest<EmotionMO> {
+        let request: NSFetchRequest<EmotionMO> = EmotionMO.fetchRequest()
+        request.predicate = NSPredicate.init(format: "id == %@", NSUUID(uuidString: id.uuidString)!)
+        request.fetchLimit = 1
+        
+        return request
     }
 }
 

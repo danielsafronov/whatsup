@@ -12,6 +12,7 @@ protocol EmotionInteractorProtocol {
     func observeEmotions() -> AnyPublisher<[Emotion], Error>
     func saveEmotion(emotion: Emotion) -> Void
     func deleteEmotion(emotion: Emotion) -> Void
+    func updateEmotion(emotion: Emotion) -> Void
 }
 
 struct EmotionInteractor: EmotionInteractorProtocol {
@@ -27,6 +28,10 @@ struct EmotionInteractor: EmotionInteractorProtocol {
     
     func deleteEmotion(emotion: Emotion) {
         repository.deleteEmotion(entry: emotion)
+    }
+    
+    func updateEmotion(emotion: Emotion) {
+        repository.updateEmotion(entry: emotion)
     }
 }
 

@@ -13,6 +13,7 @@ protocol EmotionRepositoryProtocol {
     func observeEmotions() -> AnyPublisher<[Emotion], Error>
     func saveEmotion(entry: Emotion) -> Void
     func deleteEmotion(entry: Emotion) -> Void
+    func updateEmotion(entry: Emotion) -> Void
 }
 
 struct EmotionRepository: EmotionRepositoryProtocol {
@@ -33,12 +34,20 @@ struct EmotionRepository: EmotionRepositoryProtocol {
     }
     
     func deleteEmotion(entry: Emotion) {
-        let request: NSFetchRequest<EmotionMO> = EmotionMO.fetchRequest()
-        request.predicate = NSPredicate.init(format: "id == %@", NSUUID(uuidString: entry.id.uuidString)!)
-        request.fetchLimit = 1
-        
+        let request = EmotionMO.fetchOneByIdRequest(id: entry.id)
         guard let entity = store.find(request) else { return }
+        
         store.delete(entity)
+    }
+    
+    func updateEmotion(entry: Emotion) -> Void {
+        let request = EmotionMO.fetchOneByIdRequest(id: entry.id)
+        guard let entity = store.find(request) else { return }
+        
+        entity.name = entry.name
+        entity.isPinned = entry.isPinned
+        
+        store.update(entity)
     }
 }
 
@@ -49,9 +58,11 @@ struct DefaultEmotionRepository: EmotionRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     
-    func saveEmotion(entry: Emotion) {}
+    func saveEmotion(entry: Emotion) { }
     
     func deleteEmotion(entry: Emotion) { }
+    
+    func updateEmotion(entry: Emotion) { }
 }
 
 struct PreviewEmotionRepository: EmotionRepositoryProtocol {
@@ -61,7 +72,9 @@ struct PreviewEmotionRepository: EmotionRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     
-    func saveEmotion(entry: Emotion) {}
+    func saveEmotion(entry: Emotion) { }
     
     func deleteEmotion(entry: Emotion) { }
+    
+    func updateEmotion(entry: Emotion) { }
 }
