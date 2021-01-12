@@ -33,8 +33,6 @@ struct Store: StoreProtocol {
     }
     
     func observe<V>(_ observe: NSFetchRequest<V>) -> AnyPublisher<[V], Error> {
-        storeTrack.emit()
-        
         return track
             .flatMap {
                 RequestPublisher<[V], Error>(context: context) { context in
