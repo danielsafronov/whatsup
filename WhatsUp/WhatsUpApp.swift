@@ -10,11 +10,12 @@ import SwiftUI
 @main
 struct WhatsUpApp: App {
     let persistenceController = PersistenceController.shared
+    let container = Application.bootstrap.container
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environment(\.container, Application.bootstrap.container)
+            HomeView(model: .init(container: container))
+                .environment(\.container, container)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -10,9 +10,7 @@ import Combine
 import CoreData
 
 struct HomeView: View {
-    @Environment(\.container) var container: Container
-    
-    @StateObject var model = HomeViewModel()
+    @ObservedObject private(set) var model: HomeViewModel
     
     var body: some View {
         NavigationView {
@@ -37,14 +35,14 @@ struct HomeView: View {
                     
                     Link(
                         destination: EmotionsView(
-                            model: .init(container: self.container)
+                            model: .init(container: model.container)
                         ),
                         label: "Emotions"
                     )
                     
                     Link(
                         destination: ReactionsView(
-                            model: .init(container: self.container)
+                            model: .init(container: model.container)
                         ),
                         label: "Reactions"
                     )
@@ -76,23 +74,7 @@ private struct Link<Destination>: View where Destination : View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.preview.container.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Emotion")
-        let sort = NSSortDescriptor(key: "index", ascending: false)
-        request.sortDescriptors = [sort]
-        
-        var emotions: [Emotion] = []
-        
-        do {
-            emotions = try context.fetch(request) as! [Emotion]
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        let model = HomeViewModel()
-        model.emotions = emotions
-        
+        let model = HomeViewModel(container: .preview)
         return HomeView(model: model)
-            .environment(\.managedObjectContext, context)
     }
 }

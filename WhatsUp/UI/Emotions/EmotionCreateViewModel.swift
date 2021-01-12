@@ -33,7 +33,7 @@ class EmotionCreateViewModel: ObservableObject {
             emotion: .init(
                 id: UUID(),
                 index: 0,
-                isPinned: true,
+                isPinned: false,
                 name: name
             )
         )

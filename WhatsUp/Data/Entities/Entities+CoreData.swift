@@ -29,6 +29,13 @@ extension EmotionMO {
         name = entry.name
     }
     
+    static func fetchPinnedRequest() -> NSFetchRequest<EmotionMO> {
+        let request: NSFetchRequest<EmotionMO> = EmotionMO.fetchRequest()
+        request.predicate = NSPredicate.init(format: "isPinned == %@", NSNumber(value: true))
+        
+        return request
+    }
+    
     static func fetchOneByIdRequest(id: UUID) -> NSFetchRequest<EmotionMO> {
         let request: NSFetchRequest<EmotionMO> = EmotionMO.fetchRequest()
         request.predicate = NSPredicate.init(format: "id == %@", NSUUID(uuidString: id.uuidString)!)

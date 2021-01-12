@@ -10,6 +10,7 @@ import Combine
 
 protocol EmotionInteractorProtocol {
     func observeEmotions() -> AnyPublisher<[Emotion], Error>
+    func observePinnedEmotions() -> AnyPublisher<[Emotion], Error>
     func saveEmotion(emotion: Emotion) -> Void
     func deleteEmotion(emotion: Emotion) -> Void
     func updateEmotion(emotion: Emotion) -> Void
@@ -20,6 +21,10 @@ struct EmotionInteractor: EmotionInteractorProtocol {
     
     func observeEmotions() -> AnyPublisher<[Emotion], Error> {
         return repository.observeEmotions()
+    }
+    
+    func observePinnedEmotions() -> AnyPublisher<[Emotion], Error> {
+        return repository.observePinnedEmotions()
     }
     
     func saveEmotion(emotion: Emotion) -> Void {
