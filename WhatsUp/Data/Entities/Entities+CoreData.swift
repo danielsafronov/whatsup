@@ -50,8 +50,15 @@ extension Reaction {
         guard let id = mo.id else { return nil }
         guard let emotionId = mo.emotionId else { return nil }
         guard let timestamp = mo.timestamp else { return nil }
+        guard let emotionMO = mo.emotion else { return nil }
+        guard let emotion = Emotion(mo: emotionMO) else { return nil }
         
-        self.init(id: id, emotionId: emotionId, timestamp: timestamp)
+        self.init(
+            id: id,
+            emotionId: emotionId,
+            timestamp: timestamp,
+            emotion: emotion
+        )
     }
 }
 
@@ -62,5 +69,6 @@ extension ReactionMO {
         id = entry.id
         emotionId = entry.emotionId
         timestamp = entry.timestamp
+        emotion = EmotionMO(context: context, entry: entry.emotion)
     }
 }

@@ -5,14 +5,16 @@
         <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isPinned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="reactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reaction" inverseName="emotion" inverseEntity="Reaction"/>
     </entity>
     <entity name="Reaction" representedClassName="ReactionMO" syncable="YES" codeGenerationType="class">
         <attribute name="emotionId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="emotion" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Emotion" inverseName="reactions" inverseEntity="Emotion"/>
     </entity>
     <elements>
-        <element name="Emotion" positionX="-54" positionY="-9" width="128" height="89"/>
-        <element name="Reaction" positionX="-36" positionY="36" width="128" height="74"/>
+        <element name="Emotion" positionX="-365.9783325195312" positionY="258.3734436035156" width="128" height="118"/>
+        <element name="Reaction" positionX="-36" positionY="36" width="128" height="103"/>
     </elements>
 </model>

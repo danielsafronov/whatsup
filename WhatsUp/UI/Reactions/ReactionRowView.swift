@@ -12,12 +12,12 @@ struct ReactionRowView: View {
     var reaction: Reaction? = nil
     
     var body: some View {
-        let name = reaction?.emotionId as? String
+        let name = reaction?.emotion.name ?? ""
         let date = reaction?.timestamp
         
         HStack {
             VStack(alignment: .leading) {
-                Text(name ?? "")
+                Text(name)
             }
             
             Spacer()
@@ -42,7 +42,18 @@ struct ReactionItemView_Previews: PreviewProvider {
     static var previews: some View {
         return Group {
             ReactionRowView(
-                reaction: .init(id: UUID(), emotionId: UUID(), timestamp: Date()))
+                reaction: .init(
+                    id: UUID(),
+                    emotionId: UUID(),
+                    timestamp: Date(),
+                    emotion: .init(
+                        id: UUID(),
+                        index: 0,
+                        isPinned: true,
+                        name: "🙂"
+                    )
+                )
+            )
             ReactionRowView()
         }.previewLayout(.fixed(width: 400, height: 70))
     }
