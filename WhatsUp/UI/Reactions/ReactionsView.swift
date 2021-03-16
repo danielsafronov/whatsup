@@ -13,18 +13,13 @@ struct ReactionsView: View {
     @ObservedObject private(set) var model: ReactionsViewModel
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(model.reactions) { reaction in
-                    ReactionRowView(reaction: reaction)
-                }
+        List {
+            ForEach(model.reactions) { reaction in
+                ReactionRowView(reaction: reaction)
             }
-            .listStyle(InsetGroupedListStyle())
         }
-        .navigationBarTitle(
-            Text("Reactions"),
-            displayMode: .inline
-        )
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle("Reactions", displayMode: .inline)
     }
 }
 
