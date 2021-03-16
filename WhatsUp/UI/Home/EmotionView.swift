@@ -8,23 +8,38 @@
 import SwiftUI
 
 struct EmotionView: View {
-    let title: String
+    let emotion: Emotion
+    let onClick: ((Emotion) -> Void)?
+    
+    init(emotion: Emotion, onClick: ((Emotion) -> Void)? = nil) {
+        self.emotion = emotion
+        self.onClick = onClick
+    }
     
     var body: some View {
-        Text(self.title)
-            .font(.body)
-            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            .padding()
-            .background(
-                Color(red: 215 / 255, green: 171 / 255, blue: 207 / 255)
-            )
-            .cornerRadius(5)
-            .shadow(radius: 5)        
+        Button(action: { self.onClick?(self.emotion)}) {
+            Text(emotion.name)
+                .font(.body)
+                .fontWeight(.bold)
+                .padding()
+                .background(
+                    Color(red: 215 / 255, green: 171 / 255, blue: 207 / 255)
+                )
+                .cornerRadius(5)
+                .shadow(radius: 5)
+        }
     }
 }
 
 struct EmotionView_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionView(title: "Emotion Title")
+        EmotionView(
+            emotion: Emotion(
+                id: UUID(),
+                index: 0,
+                isPinned: false,
+                name: "🙂"
+            )
+        )
     }
 }

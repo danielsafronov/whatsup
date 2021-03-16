@@ -49,7 +49,12 @@ struct EmotionsView: View {
 struct EmotionsView_Previews: PreviewProvider {
     static var previews: some View {
         let container: Container = .preview
-        let emotion = Emotion(id: UUID(), index: 0, isPinned: true, name: "🙂")
+        let emotion = Emotion(
+            id: UUID(),
+            index: 0,
+            isPinned: true,
+            name: "🙂"
+        )
         let model = EmotionsViewModel(container: container)
         model.emotions = [emotion]
         

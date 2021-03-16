@@ -14,7 +14,7 @@ extension Emotion {
         let index = Int(mo.index)
         let isPinned = mo.isPinned
         guard let name = mo.name else { return nil }
-        
+                
         self.init(id: id, index: index, isPinned: isPinned, name: name)
     }
 }
@@ -48,14 +48,12 @@ extension EmotionMO {
 extension Reaction {
     init?(mo: ReactionMO) {
         guard let id = mo.id else { return nil }
-        guard let emotionId = mo.emotionId else { return nil }
         guard let timestamp = mo.timestamp else { return nil }
         guard let emotionMO = mo.emotion else { return nil }
         guard let emotion = Emotion(mo: emotionMO) else { return nil }
         
         self.init(
             id: id,
-            emotionId: emotionId,
             timestamp: timestamp,
             emotion: emotion
         )
@@ -66,9 +64,7 @@ extension ReactionMO {
     convenience init(context: NSManagedObjectContext, entry: Reaction) {
         self.init(context: context)
         
-        id = entry.id
-        emotionId = entry.emotionId
-        timestamp = entry.timestamp
-        emotion = EmotionMO(context: context, entry: entry.emotion)
+        self.id = entry.id
+        self.timestamp = entry.timestamp
     }
 }

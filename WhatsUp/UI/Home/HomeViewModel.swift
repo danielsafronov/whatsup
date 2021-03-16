@@ -36,4 +36,13 @@ class HomeViewModel: ObservableObject {
     func observePinnedEmotions() -> AnyPublisher<[Emotion], Error> {
         return container.interactors.emotion.observePinnedEmotions()
     }
+    
+    func trackReaction(emotion: Emotion) -> Void {
+        let reaction = createReaction(emotion: emotion)
+        container.interactors.reaction.saveReaction(reaction: reaction)
+    }
+    
+    private func createReaction(emotion: Emotion) -> Reaction {
+        return Reaction(id: UUID(), timestamp: Date(), emotion: emotion)
+    }
 }

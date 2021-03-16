@@ -44,7 +44,6 @@ struct ReactionItemView_Previews: PreviewProvider {
             ReactionRowView(
                 reaction: .init(
                     id: UUID(),
-                    emotionId: UUID(),
                     timestamp: Date(),
                     emotion: .init(
                         id: UUID(),

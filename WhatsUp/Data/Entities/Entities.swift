@@ -16,7 +16,6 @@ struct Emotion: Identifiable, Codable, Equatable {
 
 struct Reaction: Identifiable, Codable, Equatable  {
     let id: UUID
-    let emotionId: UUID
     let timestamp: Date
     let emotion: Emotion
 }

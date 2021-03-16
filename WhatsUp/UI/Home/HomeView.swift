@@ -28,7 +28,9 @@ struct HomeView: View {
                             .sorted(by: { $0.index > $1.index })
                         
                         ForEach(emotions) { emotion in
-                            EmotionView(title: emotion.name)
+                            EmotionView(emotion: emotion) { emotion in
+                                model.trackReaction(emotion: emotion)
+                            }
                         }
                     }
                     .padding()

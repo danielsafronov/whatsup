@@ -10,21 +10,15 @@ import CoreData
 import Combine
 
 protocol StoreProtocol {
-    func observe<V>(_ request: NSFetchRequest<V>) -> AnyPublisher<[V], Error>
-    func find<V>(_ request: NSFetchRequest<V>) -> V?
-    func store(_ obejct: NSManagedObject) -> Void
-    func delete(_ object: NSManagedObject) -> Void
-    func update(_ object: NSManagedObject) -> Void
+    func observe<V>(_ request: NSFetchRequest<V>, in context: NSManagedObjectContext) -> AnyPublisher<[V], Error>
+    func find<V>(_ request: NSFetchRequest<V>, in context: NSManagedObjectContext) -> V?
+    func store(_ obejct: NSManagedObject, in context: NSManagedObjectContext) -> Void
+    func delete(_ object: NSManagedObject, in context: NSManagedObjectContext) -> Void
+    func update(_ object: NSManagedObject, in context: NSManagedObjectContext) -> Void
 }
 
 struct Store: StoreProtocol {
-    let context: NSManagedObjectContext
-    
     private let storeTrack = StoreTrack()
-    
-    init(context: NSManagedObjectContext) {
-        self.context = context
-    }
     
     private var track: AnyPublisher<Void, Error> {
         return storeTrack.subject
@@ -32,7 +26,7 @@ struct Store: StoreProtocol {
             .eraseToAnyPublisher()
     }
     
-    func observe<V>(_ observe: NSFetchRequest<V>) -> AnyPublisher<[V], Error> {
+    func observe<V>(_ observe: NSFetchRequest<V>, in context: NSManagedObjectContext) -> AnyPublisher<[V], Error> {
         return track
             .flatMap {
                 RequestPublisher<[V], Error>(context: context) { context in
@@ -47,7 +41,7 @@ struct Store: StoreProtocol {
             .eraseToAnyPublisher()
     }
     
-    func find<V>(_ request: NSFetchRequest<V>) -> V? {
+    func find<V>(_ request: NSFetchRequest<V>, in context: NSManagedObjectContext) -> V? {
         do {
             let data = try context.fetch(request)
             return data.first
@@ -56,7 +50,7 @@ struct Store: StoreProtocol {
         }
     }
     
-    func store(_ object: NSManagedObject) -> Void {
+    func store(_ object: NSManagedObject, in context: NSManagedObjectContext) -> Void {
         do {
             context.insert(object)
             
@@ -67,7 +61,7 @@ struct Store: StoreProtocol {
         }
     }
     
-    func delete(_ object: NSManagedObject) -> Void {
+    func delete(_ object: NSManagedObject, in context: NSManagedObjectContext) -> Void {
         do {
             context.delete(object)
             
@@ -78,8 +72,9 @@ struct Store: StoreProtocol {
         }
     }
     
-    func update(_ object: NSManagedObject) {
+    func update(_ object: NSManagedObject, in context: NSManagedObjectContext) {
         do {
+            configureContextAsUpdate(context)
             context.refresh(object, mergeChanges: true)
             
             try context.save()
@@ -87,6 +82,18 @@ struct Store: StoreProtocol {
         } catch {
             fatalError("Unresolved error \(error)")
         }
+    }
+    
+    private func configureContextAsUpdate(_ context: NSManagedObjectContext) {
+        context.mergePolicy = NSOverwriteMergePolicy
+        context.undoManager = nil
+    }
+    
+    private func configureAsReadOnlyContext(_ context: NSManagedObjectContext) {
+        context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSRollbackMergePolicy
+        context.undoManager = nil
+        context.shouldDeleteInaccessibleFaults = true
     }
 }
 

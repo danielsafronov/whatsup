@@ -53,7 +53,10 @@ struct EmotionRowView_Previews: PreviewProvider {
         return Group {
             EmotionRowView(
                 emotion: .init(
-                    id: UUID(), index: 0, isPinned: true, name: "🙂"
+                    id: UUID(),
+                    index: 0,
+                    isPinned: true,
+                    name: "🙂"
                 )
             )
             EmotionRowView()

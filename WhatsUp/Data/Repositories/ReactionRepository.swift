@@ -10,14 +10,15 @@ import Combine
 import CoreData
 
 protocol ReactionRepositoryProtocol {
-    func observeReactions() -> AnyPublisher<[Reaction], Error>
+    func observeReactions(context: NSManagedObjectContext) -> AnyPublisher<[Reaction], Error>
+    func saveReaction(reaction: ReactionMO, in context: NSManagedObjectContext) -> Void
 }
 
 struct ReactionRepository: ReactionRepositoryProtocol {
     let store: Store
     
-    func observeReactions() -> AnyPublisher<[Reaction], Error> {
-        return store.observe(ReactionMO.fetchRequest())
+    func observeReactions(context: NSManagedObjectContext) -> AnyPublisher<[Reaction], Error> {
+        return store.observe(ReactionMO.fetchRequest(), in: context)
         .map { objects in
             objects.compactMap { object in
                 Reaction(mo: object)
@@ -25,20 +26,28 @@ struct ReactionRepository: ReactionRepositoryProtocol {
         }
         .eraseToAnyPublisher()
     }
+    
+    func saveReaction(reaction: ReactionMO, in context: NSManagedObjectContext) {
+        store.store(reaction, in: context)
+    }
 }
 
 struct DefaultReactionRepository: ReactionRepositoryProtocol {
-    func observeReactions() -> AnyPublisher<[Reaction], Error> {
+    func observeReactions(context: NSManagedObjectContext) -> AnyPublisher<[Reaction], Error> {
         return Just<[Reaction]>([])
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
+    
+    func saveReaction(reaction: ReactionMO, in context: NSManagedObjectContext) { }
 }
 
 struct PreviewReactionRepository: ReactionRepositoryProtocol {
-    func observeReactions() -> AnyPublisher<[Reaction], Error> {
+    func observeReactions(context: NSManagedObjectContext) -> AnyPublisher<[Reaction], Error> {
         return Just<[Reaction]>([])
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
+    
+    func saveReaction(reaction: ReactionMO, in context: NSManagedObjectContext) { }
 }

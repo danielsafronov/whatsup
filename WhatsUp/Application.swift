@@ -19,8 +19,8 @@ struct Application: ApplicationProtocol {
 extension Application {
     static var bootstrap: Self {
         let context = getContext()
-        let store = getStore(context: context)
-        let interactors = getInteractors(store: store)
+        let store = getStore()
+        let interactors = getInteractors(store: store, context: context)
         let container = Container(interactors: interactors)
         
         return Application(container: container)
@@ -30,16 +30,16 @@ extension Application {
         return PersistenceController.shared.container.viewContext
     }
     
-    private static func getStore(context: NSManagedObjectContext) -> Store {
-        return Store(context: context)
+    private static func getStore() -> Store {
+        return Store()
     }
     
-    private static func getInteractors(store: Store) -> InteractorsProtocol {
+    private static func getInteractors(store: Store, context: NSManagedObjectContext) -> InteractorsProtocol {
         let emotionRepository = getEmotionRepository(store: store)
-        let emotionInteractor = getEmotionInteractor(repository: emotionRepository)
+        let emotionInteractor = getEmotionInteractor(context: context, repository: emotionRepository)
         
         let reactionRepository = getReactionRepository(store: store)
-        let reactionInteractor = getReactionInteractor(repository: reactionRepository)
+        let reactionInteractor = getReactionInteractor(context: context, reactionRepository: reactionRepository, emotionRepository: emotionRepository)
         
         return Interactors(
             emotion: emotionInteractor,
@@ -47,19 +47,118 @@ extension Application {
         )
     }
     
-    private static func getEmotionInteractor(repository: EmotionRepositoryProtocol) -> EmotionInteractorProtocol {
-        return EmotionInteractor(repository: repository)
-    }
-    
     private static func getEmotionRepository(store: Store) -> EmotionRepositoryProtocol {
         return EmotionRepository(store: store)
     }
     
-    private static func getReactionInteractor(repository: ReactionRepositoryProtocol) -> ReactionInteractorProtocol {
-        return ReactionInteractor(repository: repository)
+    private static func getEmotionInteractor(
+        context: NSManagedObjectContext,
+        repository: EmotionRepositoryProtocol
+    ) -> EmotionInteractorProtocol {
+        let observeEmotionsInteractor = getObserveEmotionsInteractor(context: context, repository: repository)
+        let observePinnedEmotionsInteractor = getObservePinnedEmotionsInteractor(context: context, repository: repository)
+        let saveEmotionInteractor = getSaveEmotionInteractor(context: context, repository: repository)
+        let deleteEmotionInteractor = getDeleteEmotionInteractor(context: context, repository: repository)
+        let updateEmotionInteractor = getUpdateEmotionInteractor(context: context, repository: repository)
+        
+        return EmotionInteractor(
+            observeEmotionsInteractor: observeEmotionsInteractor,
+            observePinnedEmotionsInteractor: observePinnedEmotionsInteractor,
+            saveEmotionInteractor: saveEmotionInteractor,
+            deleteEmotionInteractor: deleteEmotionInteractor,
+            updateEmotionInteractor: updateEmotionInteractor
+        )
     }
     
-    private static func getReactionRepository(store: Store) -> ReactionRepositoryProtocol {
+    private static func getObserveEmotionsInteractor(
+        context: NSManagedObjectContext,
+        repository: EmotionRepositoryProtocol
+    ) -> ObserveEmotionsInteractorProtocol {
+        return ObserveEmotionsInteractor(
+            context: context,
+            repository: repository
+        )
+    }
+    
+    private static func getObservePinnedEmotionsInteractor(
+        context: NSManagedObjectContext,
+        repository: EmotionRepositoryProtocol
+    ) -> ObservePinnedEmotionsInteractorProtocol {
+        return ObservePinnedEmotionsInteractor(
+            context: context,
+            repository: repository
+        )
+    }
+    
+    private static func getSaveEmotionInteractor(
+        context: NSManagedObjectContext,
+        repository: EmotionRepositoryProtocol
+    ) -> SaveEmotionInteractorProtocol {
+        return SaveEmotionInteractor(
+            context: context,
+            repository: repository
+        )
+    }
+    
+    private static func getDeleteEmotionInteractor(
+        context: NSManagedObjectContext,
+        repository: EmotionRepositoryProtocol
+    ) -> DeleteEmotionInteractorProtocol {
+        return DeleteEmotionInteractor(
+            context: context,
+            repository: repository
+        )
+    }
+    
+    private static func getUpdateEmotionInteractor(
+        context: NSManagedObjectContext,
+        repository: EmotionRepositoryProtocol
+    ) -> UpdateEmotionInteractorProtocol {
+        return UpdateEmotionInteractor(
+            context: context,
+            repository: repository
+        )
+    }
+    
+    private static func getReactionInteractor(
+        context: NSManagedObjectContext,
+        reactionRepository: ReactionRepositoryProtocol,
+        emotionRepository: EmotionRepositoryProtocol
+    ) -> ReactionInteractorProtocol {
+        let observeReactionsInteractor = getObserveReactionsInteractor(context: context, repository: reactionRepository)
+        let saveReactionInteractor = getSaveReactionInteractor(context: context, reactionRepository: reactionRepository, emotionRepository: emotionRepository)
+        
+        return ReactionInteractor(
+            observeReactionsInteractor: observeReactionsInteractor,
+            saveReactionInteractor: saveReactionInteractor
+        )
+    }
+    
+    private static func getObserveReactionsInteractor(
+        context: NSManagedObjectContext,
+        repository: ReactionRepositoryProtocol
+    ) -> ObserveReactionsInteractorProtocol {
+        return ObserveReactionsInteractor(
+            context: context,
+            repository: repository
+        )
+    }
+    
+    private static func getSaveReactionInteractor(
+        context: NSManagedObjectContext,
+        reactionRepository: ReactionRepositoryProtocol,
+        emotionRepository: EmotionRepositoryProtocol
+    ) -> SaveReactionInteractorProtocol {
+        return SaveReactionInteractor(
+            context: context,
+            reactionRepository: reactionRepository,
+            emotionRepository: emotionRepository
+        )
+    }
+    
+    private static func getReactionRepository(
+        store: Store
+    ) -> ReactionRepositoryProtocol {
         return ReactionRepository(store: store)
     }
 }
